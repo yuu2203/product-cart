@@ -46,12 +46,12 @@ app.delete('/cart/:id', (req, res) => {
     })
 })
 
-app.get('/cart/:id', (req, res) => {
+app.get('/products/:id', (req, res) => {
     const {id} = req.params
-    const query = 'select * from cart where id = ?'
+    const query = 'select * from products where id = ?'
     connection.query(query, [id], (err, result) => {
         if (err) throw err
-        res.json({id})
+        res.json(result)
     })
 })
 
